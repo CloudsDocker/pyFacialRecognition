@@ -1,10 +1,18 @@
 ---
 layout: page
-title: 用10几行代码自己写个人脸识别程序
+title: A Facial Recognition utility in a dozen of LOC/用10几行代码自己写个人脸识别程序
 tag:
 - DeepLearning
 - FacialRecognition
 ---
+A Facial Recognition utility in a dozen of LOC (Lines Of Code)
+## CV (Computer Vision)
+I have been soak myself in open sourced libraries, such as OpenCV. 
+
+---
+用10几行代码自己写个人脸识别程序
+
+
 
 ## CV (Computer Vision)
 最近在研究CV的一些开源库(OpenCV)，有一个体会就是在此领域，除了一些非常学术的_机器学习_, _深度学习_等概念外，其实还有一些很有趣的_现实的_应用场景。比如之前很流行的微软的 https://how-old.net, 你使用自己指定或者上传的照片进行面部识别_猜年龄_。 如下图所示：
