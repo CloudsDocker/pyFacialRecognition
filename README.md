@@ -1,10 +1,4 @@
----
-layout: page
-title: A Facial Recognition utility in a dozen of LOC/用10几行代码自己写个人脸识别程序
-tag:
-- DeepLearning
-- FacialRecognition
----
+
 A Facial Recognition utility in a dozen of LOC (Lines Of Code)
 ## CV (Computer Vision)
 I have been soak myself in open sourced libraries, such as OpenCV. 
