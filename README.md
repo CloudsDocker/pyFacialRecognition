@@ -10,6 +10,7 @@ A Facial Recognition utility in a dozen of LOC (Lines Of Code)
 I have been soak myself in open sourced libraries, such as OpenCV. 
 
 ---
+
 用10几行代码自己写个人脸识别程序
 
 
@@ -150,7 +151,7 @@ cd pyFacialRecognition
 * helloworld_2000 (wechat/微信)
 * 微博: cloudsdocker
 * [github](https://github.com/CloudsDocker/)
-* [简书 jianshu]（http://www.jianshu.com/users/a9e7b971aafc）
+* [简书 jianshu](http://www.jianshu.com/users/a9e7b971aafc)
 * 微信公众号：vibex
 
 ## Reference
