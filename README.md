@@ -160,3 +160,4 @@ cd pyFacialRecognition
 
 - [Face Detection using Haar Cascades](http://docs.opencv.org/trunk/d7/d8b/tutorial_py_face_detection.html)
 - [NSFW](https://github.com/yahoo/open_nsfw)
+
