@@ -1,0 +1,11 @@
+DEBUG:__main__:			start to process 		
+DEBUG:__main__:started
+2016-12-07 21:03:35,406 localhost todzhang 			start to process 		
+2016-12-07 21:04:00,038 localhost todzhang 			start to process 		
+2016-12-07 21:04:00,038 localhost todzhang started
+2016-12-07 21:04:39,319 localhost todzhang 			start to process 		
+2016-12-07 21:04:39,319 localhost todzhang inputImageFile is test.jpg
+2016-12-07 21:14:16,126 [DEBUG] 13 localhost todzhang 			start to process 		
+2016-12-07 21:14:16,127 [DEBUG] 16 localhost todzhang inputImageFile is test.jpg
+2016-12-07 21:15:20,749 [DEBUG] 13 localhost todzhang 			start to process 		
+2016-12-07 21:15:20,749 [DEBUG] 16 localhost todzhang 	inputImageFile is test.jpg

@@ -1,8 +1,19 @@
 # -*- coding: utf-8 -*-
 import cv2,sys
+import logging
 
+# FORMAT='%(asctime)-15s %(user)-8s %(message)s'
+FORMAT='%(asctime)-15s [%(levelname)s] %(lineno)d %(clientip)s %(user)-8s %(message)s'
+#Full list of formats can be found at https://docs.python.org/2/library/logging.html#logging.Formatter
+
+extraD={'clientip':'localhost','user':'todzhang'}
+logging.basicConfig(filename=r'app.log',level=logging.DEBUG,format=FORMAT)
+logger=logging.getLogger(__name__)
+
+logger.debug("			start to process 		",extra=extraD)
 # 使用输入的测试照片的文件名
 inputImageFile=sys.argv[1]
+logger.debug("	inputImageFile is %s",inputImageFile,extra=extraD)
 
 # 使用 HAAR 的机器学习积累的原始文件，这里此文件包括了人脸识别的“经验”
 faceBase='haarcascade_frontalface_default.xml'
