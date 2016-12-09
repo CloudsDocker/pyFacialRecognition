@@ -38,6 +38,20 @@ Please be advised the red rectangle around faces.
 ![](http://cloudsdocker.github.io/images/facial_postProcessImage.png)
 
 
+## Souce Code Dissection
+### Prerequite
+First of first, as you know, this program is composed by **python**,therefore, make sure you work station or laptop equiped with python, vesrion is irrelavant for this program.
+
+In addition, this utility is built upon [OpenCV](http://opencv.org/downloads.html) (http://opencv.org/downloads.html), therefore please install this component as well. Just as its name suggested, it is an open source framework focus on computer vision related deep learning. This is one Intel lab built by Rusian, which is a very active community. 
+
+Particulary, if you are Mac users, it's recommended to use *brew* to setup OpenCV. Below is sample commands(The 1st line of following command may raise some errors, in that case please contact me via the link at the rear of this blog):
+```sh
+brew tap homebrew/science
+brew install opencv
+```
+
+Let's dissect file **recognizeFace_loose_en.py** as one example
+
 
 
 
