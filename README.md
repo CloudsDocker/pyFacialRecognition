@@ -6,11 +6,44 @@ tag:
 - FacialRecognition
 ---
 A Facial Recognition utility in a dozen of LOC (Lines Of Code)
+
 ## CV (Computer Vision)
-I have been soak myself in open sourced libraries, such as OpenCV. 
+I have been soak myself in open sourced libraries, such as OpenCV. I gradually came to realize concepts such as _Machine Learning_ , _Deep Learning_ are not purely academic standing water. As a matter of fact, those elusive topics and certain pramatic use cases could coalesce in a hurdle of interesting products. For instance, in past couple of months, there were a hype of _guess-ages-by-photo_, below is one screenshot.
+
+![](http://cloudsdocker.github.io/images/facial_howold.jpg)
+
+Initially been attracted by such funky features, after second thoughts, I found at the heart of it is two cohensive parts, the first one is how to locate _human faces_ from background and whole picture, consequently to have a ballpark _age_ for the recongnized the faces. You may guess how difficult to codify a program to implement the 1st feature. Actually this is not requires hundreds of thousands of lines of code, at here purely a dozen of lines of code are necessiated (actually only 10 lines of code, excluding space line and comments). I'd like to piggyback on such tiny utility to elaborate advanced topics of Computer Visions.
+
+### Faces recognition
+Actually _face recognition_ is not new to us, this feature can be wildly found in the feature of _auto focus_ in DC (Digital Camera) and many main stream smart phone built-in cameras. Just like below photo. You can get a sense of how _commonplace_ of face recognition , which is becoming a widely used technology around us.
+
+![](http://cloudsdocker.github.io/images/iPhone-camera-face-recognition.jpg)
+
+Therotically speaking, face recognition is also called _face detection_, it's a type of technogloy/program to electorincally identify human frontal faces in digital images, such as photos, camera or suvillance. Further more, face detection is kind of objects detection in computer vision area. Which will locate object (e.g. human face) and get the size.
+
+## My '10 LOC program'
+First of all, let's have some visual and concrete feeling of this program:
+
+![](http://cloudsdocker.github.io/images/facial_code_preview.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
-
+# Chinese version/ 中文版本的说明
 用10几行代码自己写个人脸识别程序
 
 
