@@ -22,13 +22,20 @@ Actually _face recognition_ is not new to us, this feature can be wildly found i
 Therotically speaking, face recognition is also called _face detection_, it's a type of technogloy/program to electorincally identify human frontal faces in digital images, such as photos, camera or suvillance. Further more, face detection is kind of objects detection in computer vision area. Which will locate object (e.g. human face) and get the size.
 
 ## My '10 LOC program'
-First of all, let's have some visual and concrete feeling of this program:
+First of all, let's have some visual and concrete feeling of this program, below screenshot is the source code. 
 
 ![](http://cloudsdocker.github.io/images/facial_code_preview.png)
 
+The whole program source code can be found at  [this github repository](https://github.com/CloudsDocker/pyFacialRecognition) https://github.com/CloudsDocker/pyFacialRecognition . Please feel free to _fork_ , check it out and have a try. I'll walk through this program one line by one line at this blog.
 
+"You serious? This is all the problem, just aforementioned 10 lines?" Let's first take a look at the actul run output.
 
+### Here is the origional image
+![](http://cloudsdocker.github.io/images/facial_oriImage.jpg)
 
+### Below is the result of execution of this tiny utility
+Please be advised the red rectangle around faces.
+![](http://cloudsdocker.github.io/images/facial_postProcessImage.png)
 
 
 
