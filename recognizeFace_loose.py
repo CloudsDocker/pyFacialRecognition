@@ -15,27 +15,27 @@ logger.debug("			start to process 		",extra=extraD)
 inputImageFile=sys.argv[1]
 logger.debug("	inputImageFile is %s",inputImageFile,extra=extraD)
 
-# 使用 HAAR 的机器学习积累的原始文件，这里此文件包括了人脸识别的“经验”
+logger.debug('使用 HAAR 的机器学习积累的原始文件，这里此文件包括了人脸识别的“经验”',extra=extraD)
 faceBase='haarcascade_frontalface_default.xml'
 
-# 根据机器学习库文件创建一个 classifier
+logger.debug(' 根据机器学习库文件创建一个 classifier',extra=extraD)
 faceClassifier=cv2.CascadeClassifier(faceBase)
 
-# 使用库 cv2 来加载图片
+logger.debug(' 使用库 cv2 来加载图片',extra=extraD)
 objImage=cv2.imread(inputImageFile)
 
-# 首先将图片进行灰度化处理，以便于进行图片分析
+logger.debug(' 首先将图片进行灰度化处理，以便于进行图片分析',extra=extraD)
 cvtImage=cv2.cvtColor(objImage,cv2.COLOR_BGR2GRAY)
 
-# 执行detectMultiScale方法来识别物体，我们这里使用的是人脸的数据，因此用于面部识别
+logger.debug(' 执行detectMultiScale方法来识别物体，我们这里使用的是人脸的数据，因此用于面部识别',extra=extraD)
 foundFaces=faceClassifier.detectMultiScale(cvtImage,scaleFactor=1.3,minNeighbors=9,minSize=(50,50),flags = cv2.cv.CV_HAAR_SCALE_IMAGE)
 
-print(" 在图片中找到了 {} 个人脸".format(len(foundFaces)))
+logger.info(" 在图片中找到了 %d 个人脸",len(foundFaces),extra=extraD)
 
-# 遍历发现的人脸
+logger.debug(' 遍历发现的人脸',extra=extraD)
 for (x,y,w,h) in foundFaces:
 	cv2.rectangle(objImage,(x,y),(x+w,y+h),(0,0,255),2)
 
-#显示这个图片识别的结果
+logger.debug('显示这个图片识别的结果',extra=extraD)
 cv2.imshow(u'面部识别的结果已经高度框出来了。按任意键退出'.encode('gb2312'), objImage)
 cv2.waitKey(0)
