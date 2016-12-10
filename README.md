@@ -82,10 +82,23 @@ We stop here not reading further code, avoiding perplex you, I'll walk through c
 In arena of computer vision and machine learning, a variaty of classifiers been and being built, to assemle special _domain_ knowledge to recognize corresponding objects. For example, there are particular **classifier** to recognize cars, there are _plane_ classifier, and classifiers to recognize smile, eyes, etc. For our case, we need a specific classifier help us to detect and locate human faces.
 
 #### Conceps of objects recognize
-Generally speaking，, to recognize one object (such as human faces) means finding and identifying objects in an image or video sequence. 比如想要机器学习着去识别“人脸”，就会使用大量的样本图片来事先培训，这些图片分为两大类，positive和negative的，也就是分为包“含有人脸”的图片和“不包含人脸”的图片，这样当使用程序去一张一张的分析这些图片，然后分析判断并对这些图片“分类” (classify),即合格的图片与不合格的图片，这也就其为什么叫做 _classifier_ ， 这样学习过程中积累的"知识"，比如一些判断时的到底临界值多少才能判断是positive还是negative什么的，都会存储在一个个XML文件中，这样使用这些前人经验（这里我们使用了 _哈尔_ 分类器）来对新的图片进行‘专家判断'分析，是否是人脸或者不是人脸。
+Generally speaking，, to recognize one object (such as human faces) means finding and identifying objects in an image or video sequence. However, it's neccessitate tons of sample/specimen to **train** machine to learn, for instance, it's likely thousands of hundreds of digital images/video will be prepared as learning material, while all of specimen should be categorized to two mutax type,  _positive_ or _negative_. e.g. phots containss *human face* and ones **without** *human face*. When machine read one photo, it was told this is either a positive one or negative one, then machine could gradually analysys and induce some **common facets** and persist to files for future usages, e.g. when given a new photo, the machine can **classify** it whether it's a positive or negative. That's why it's called **_classifier_**. 
 
-### Cascade 
-这里的 Cascade是 _层级分类器_ 的意思。为什么要 _分层_ 呢？刚才提到在进行机器分析照片时，其实是对整个图片从上到下，从左到右，一个像素一个像素的分析，这些分析又会涉及很多的 _特征分析_ ，比如对于人脸分析就包含识别眼睛，嘴巴等等，一般为了提高分析的准确度都需要有成千上万个特征，这样对于每个像素要进行成千上万的分析，对于整个图片都是百万甚至千万像素，这样总体的计算量会是个天文数字。但是，科学家很聪明，就想到分级的理念，即把这些特征分层，这样分层次去验证图片，如果前面层次的特征没有通过，对于这个图片就不用判断后面的特征了。这有点像是系统架构中的 _FF (Fail Fast)_,这样就提高了处理的速度与效率。
+#### Cascade 
+Your feeling is right, just as it's name suggrested, cascade implies propagating something. In this case, it's specifically means **Cascade classifier**. Intuitively the next question is *why* cascade is required? Let me try to articulate the underlying logic, as you know, at the heart of digital images, which is the raw material of computer vision, are pixel。For one CV process, it need to scan each pixel per pixel, while in contemporary world, size of image tend to incresing more than we expected, e.g. normall one photo taken by smart phone tend to contains millions of pixels. At the meanwhile, to fine tune and get a more accuate result of one object recognition, it tend to lots of *classifiers* to work from different point of views of the underlying photo. Therefore these two factors interwhirled together, the final number would be astronomical. Therefore, one innovative solution is *cascade*, in a nutshell, all classifiers will be splited to multiple layers, one photo will be examined by classifiers on 1st layer at the very begining, if failed, the whole CV can retain **_negative_** immediately, with fewest efforts and time cost, while majority of other classifiers won't be executed in actual. This should significantely accelerate the whole process of CV. This is similar to **_FF(Fail Fast)_** in other areas,severed for sake of running efficiency.
+
+
+
+```python
+objImage=cv2.imread(inputImageFile)
+```
+-  To create one OpenCV image object by loading the input digital file via OpenCV 
+
+
+```python
+cvtImage=cv2.cvtColor(objImage,cv2.COLOR_BGR2GRAY)
+```
+- 首先将图片进行灰度化处理，以便于进行图片分析。这种方法在图像识别领域非常常见，比如在进行验证码的机器识别时就会先灰度化，去除不相关的背景噪音图像，然后再分析每个像素，以便抽取出真实的数据。不对针对此，你就看到非常多的验证码后面特意添加了很多的噪音点，线，就是为了防止这种程序来灰度化图片进行分析破解。
 
 
 # Reference
