@@ -88,7 +88,6 @@ Generally speaking，, to recognize one object (such as human faces) means findi
 Your feeling is right, just as it's name suggrested, cascade implies propagating something. In this case, it's specifically means **Cascade classifier**. Intuitively the next question is *why* cascade is required? Let me try to articulate the underlying logic, as you know, at the heart of digital images, which is the raw material of computer vision, are pixel。For one CV process, it need to scan each pixel per pixel, while in contemporary world, size of image tend to incresing more than we expected, e.g. normall one photo taken by smart phone tend to contains millions of pixels. At the meanwhile, to fine tune and get a more accuate result of one object recognition, it tend to lots of *classifiers* to work from different point of views of the underlying photo. Therefore these two factors interwhirled together, the final number would be astronomical. Therefore, one innovative solution is *cascade*, in a nutshell, all classifiers will be splited to multiple layers, one photo will be examined by classifiers on 1st layer at the very begining, if failed, the whole CV can retain **_negative_** immediately, with fewest efforts and time cost, while majority of other classifiers won't be executed in actual. This should significantely accelerate the whole process of CV. This is similar to **_FF(Fail Fast)_** in other areas,severed for sake of running efficiency.
 
 
-
 ```python
 objImage=cv2.imread(inputImageFile)
 ```
@@ -98,11 +97,63 @@ objImage=cv2.imread(inputImageFile)
 ```python
 cvtImage=cv2.cvtColor(objImage,cv2.COLOR_BGR2GRAY)
 ```
-- 首先将图片进行灰度化处理，以便于进行图片分析。这种方法在图像识别领域非常常见，比如在进行验证码的机器识别时就会先灰度化，去除不相关的背景噪音图像，然后再分析每个像素，以便抽取出真实的数据。不对针对此，你就看到非常多的验证码后面特意添加了很多的噪音点，线，就是为了防止这种程序来灰度化图片进行分析破解。
+- Firstly, convert the digital colorful image to grayscale one, which easy the task to scan and analyse the image. Actually this is quite common in image analys area. e.g. this could eliminate those *noisy* pixel from the picture.
 
+```python
+foundFaces=faceClassifier.detectMultiScale(cvtImage,scaleFactor=1.3,minNeighbors=9,minSize=(50,50),flags = cv2.cv.CV_HAAR_SCALE_IMAGE)
+```
+- Call method **detectMultiScale** to recongnize object, i.e. human face in this case. The parameters overview as below:
+ - scaleFactor: For a photo, particualy from selpie, some faces are shows bigger than rest of others, due to the distance between each faces and lens. Therefore this parameter is used to config the factor, please be advised this _double_ should greater than 1.0
+ - minNeighbors: Because it need to gradually scan the photo by a certain _window_, i.e. a rectangle. So this parameter is telling how many other object in the vacinity to be detected, before making final decision that it's positive or negative.
+ - minSize：For aforementioend _window_, this parameter is setting the size of this rectangle.
 
-# Reference
+```python
+print(" Found {} human faces in this image".format(len(foundFaces)))
+```
+- To print how many faces detected, be reminded returned value is a list, each item is the actual position of every faces. Therefore, using  _len_  to print total number of ojects found.
+
+```python
+for (x,y,w,h) in foundFaces:
+    cv2.rectangle(objImage,(x,y),(x+w,y+h),(0,0,255),2)
+```
+- 遍历发现的“人脸”，需要说明的返回的是由4部分组成的位置数据，即这个“人脸”的横轴，纵轴坐标，宽度与高度。
+- 然后使用 _OpenCV_ 提供的方法在原始图片上画出个矩形。其中 _(0,0,255)_ 是使用的颜色，这里使用的是R/G/B的颜色表示方法，比如 (0,0,0)表示黑色，(255,255,255)表示白色，有些网页编程经验的程序员应该不陌生。
+
+```python
+cv2.imshow(u'面部识别的结果已经高度框出来了。按任意键退出'.encode('gb2312'), objImage)
+cv2.waitKey(0)
+```
+- 接下来是使用 _opencv_ 提供的imshow方法来显示这个图片，其中包括我们刚刚画的红色的识别的结果
+- 最后一个语句是让用户按下键盘任意一个键来退出此图片显示窗口
+
+# In summary
+好了，上面是这个程序的详细解释以及相关的知识的讲解。其实这个只是个_抛砖引玉_的作用，还用非常多的应用场景，比如程序解析网页上的图片验证码，雅虎前几个月开源的 [NSFW](https://github.com/yahoo/open_nsfw), Not Suitable for Work (NSFW)，即判断那些不适合工作场所的图片，内容你懂的。 :-)
+
+Finally，please be reminded all related source are open sourced at github repository https://github.com/CloudsDocker/pyFacialRecognition ，please fork并下载到本地后执行下面代码来测试运行
+```sh
+git clone https://github.com/CloudsDocker/pyFacialRecognition.git
+cd pyFacialRecognition
+./run.sh
+```
+
+Any comments/suggestions, feel free to contact me
+
+## Contact me：
+* phray.zhang@gmail.com (email，whatsapp, linkedin)
+* helloworld_2000 (wechat)
+* weibo: cloudsdocker
+* [github](https://github.com/CloudsDocker/)
+* [jianshu](http://www.jianshu.com/users/a9e7b971aafc)
+* wechat：vibex
+
+## Reference
 - [Object recognition](https://www.mathworks.com/discovery/object-recognition.html)
+- [OpenCV](http://docs.opencv.org/trunk/index.html)
+- [HAAR 哈尔特征](https://zh.wikipedia.org/wiki/哈尔特征)
+- [Face Detection using Haar Cascades](http://docs.opencv.org/trunk/d7/d8b/tutorial_py_face_detection.html)
+- [NSFW](https://github.com/yahoo/open_nsfw)
+
+
 
 
 
