@@ -35,10 +35,10 @@ The whole program source code can be found at  [this github repository](https://
 
 ### Below is the result of execution of this tiny utility
 Please be advised the red rectangle around faces.
-![](http://cloudsdocker.github.io/images/facial_postProcessImage.png)
+![](http://cloudsdocker.github.io/images/facial_postProcessImage_en.png)
 
 
-## Souce Code Dissection
+## Souce Code 
 ### Prerequite
 First of first, as you know, this program is composed by **python**,therefore, make sure you work station or laptop equiped with python, vesrion is irrelavant for this program.
 
@@ -50,7 +50,50 @@ brew tap homebrew/science
 brew install opencv
 ```
 
+Upon completion of above scripts, you can execute following scripts to verify whether it's installed success or not, e.g. it means all fine if no exception/errors raised
+```sh
+>>> import cv2
+```
+
+### Souce Code Dissection
 Let's dissect file **recognizeFace_loose_en.py** as one example
+
+```python
+import cv2,sys
+```
+- To import library of OpenCV and python built-in system library, which is used to parse input arguments.
+
+```python
+inputImageFile=sys.argv[1]
+```
+- To read the **1st** argument, which to be the file name of the image to be parsed, e.g. _test.jpg_
+
+```python
+faceClassifier=cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+```
+
+- To load HAAR Casscade Classifier, the human face recognition cascade categorizer which shipped with OpenCV. Which will do the _actual_ computation, logic to recognize and size human faces from any given images.  
+
+
+### Expansion of computer vision knowledge
+We stop here not reading further code, avoiding perplex you, I'll walk through certain CV topics pertaining to this blog. As for more deep concepts, please feel free to contact me or goole by yourself.
+
+#### Classifier
+In arena of computer vision and machine learning, a variaty of classifiers been and being built, to assemle special _domain_ knowledge to recognize corresponding objects. For example, there are particular **classifier** to recognize cars, there are _plane_ classifier, and classifiers to recognize smile, eyes, etc. For our case, we need a specific classifier help us to detect and locate human faces.
+
+#### Conceps of objects recognize
+Generally speaking，, to recognize one object (such as human faces) means finding and identifying objects in an image or video sequence. 比如想要机器学习着去识别“人脸”，就会使用大量的样本图片来事先培训，这些图片分为两大类，positive和negative的，也就是分为包“含有人脸”的图片和“不包含人脸”的图片，这样当使用程序去一张一张的分析这些图片，然后分析判断并对这些图片“分类” (classify),即合格的图片与不合格的图片，这也就其为什么叫做 _classifier_ ， 这样学习过程中积累的"知识"，比如一些判断时的到底临界值多少才能判断是positive还是negative什么的，都会存储在一个个XML文件中，这样使用这些前人经验（这里我们使用了 _哈尔_ 分类器）来对新的图片进行‘专家判断'分析，是否是人脸或者不是人脸。
+
+### Cascade 
+这里的 Cascade是 _层级分类器_ 的意思。为什么要 _分层_ 呢？刚才提到在进行机器分析照片时，其实是对整个图片从上到下，从左到右，一个像素一个像素的分析，这些分析又会涉及很多的 _特征分析_ ，比如对于人脸分析就包含识别眼睛，嘴巴等等，一般为了提高分析的准确度都需要有成千上万个特征，这样对于每个像素要进行成千上万的分析，对于整个图片都是百万甚至千万像素，这样总体的计算量会是个天文数字。但是，科学家很聪明，就想到分级的理念，即把这些特征分层，这样分层次去验证图片，如果前面层次的特征没有通过，对于这个图片就不用判断后面的特征了。这有点像是系统架构中的 _FF (Fail Fast)_,这样就提高了处理的速度与效率。
+
+
+# Reference
+- [Object recognition](https://www.mathworks.com/discovery/object-recognition.html)
+
+
+
+
 
 
 
@@ -138,8 +181,8 @@ faceClassifier=cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 这里有几个在深度学习及机器图像识别领域中的几个概念，稍微分析一下，至于深入的知识，大家可以自行搜索或者联系作者。
 
-### Classifer 
-在机器深度学习领域，针对识别不同物体都有不同的classifier,比如有的classifier来识别洗车，还有识别飞机的classifier，有classifier来识别照片中的笑容，眼睛等等。而我们这个例子是需要去做人脸识别，因此需要一个面部识别的classifier。
+### Classifier 
+在机器深度学习领域，针对识别不同物体都有不同的classifier,比如有的classifier来识别汽车，还有识别飞机的classifier，有classifier来识别照片中的笑容，眼睛等等。而我们这个例子是需要去做人脸识别，因此需要一个面部识别的classifier。
 
 ### 物体识别的原理
 一般来说，比如想要机器学习着去识别“人脸”，就会使用大量的样本图片来事先培训，这些图片分为两大类，positive和negative的，也就是分为包“含有人脸”的图片和“不包含人脸”的图片，这样当使用程序去一张一张的分析这些图片，然后分析判断并对这些图片“分类” (classify),即合格的图片与不合格的图片，这也就其为什么叫做 _classifier_ ， 这样学习过程中积累的"知识"，比如一些判断时的到底临界值多少才能判断是positive还是negative什么的，都会存储在一个个XML文件中，这样使用这些前人经验（这里我们使用了 _哈尔_ 分类器）来对新的图片进行‘专家判断'分析，是否是人脸或者不是人脸。

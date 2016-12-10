@@ -1,0 +1,20 @@
+2016-12-10 21:14:58,121 [DEBUG] 10 localhost todzhang 			start to process 		
+2016-12-10 21:14:58,121 [DEBUG] 12 localhost todzhang 	inputImageFile is test.jpg
+2016-12-10 21:14:58,121 [DEBUG] 14 localhost todzhang   we are going to make use of HAAR cascade to detect human faces
+2016-12-10 21:14:58,121 [DEBUG] 17 localhost todzhang  To build one classifier based on aforeside cascade
+2016-12-10 21:14:58,155 [DEBUG] 20 localhost todzhang  To load digital images via library CV2
+2016-12-10 21:14:58,170 [DEBUG] 23 localhost todzhang  Firstly, going to convert colorful image to grayscale,for further analysis
+2016-12-10 21:14:58,173 [DEBUG] 26 localhost todzhang  To call method detectMultiScale, to detect objects, here is human faces
+2016-12-10 21:14:58,229 [INFO] 29 localhost todzhang  Found  2  human faces in this image
+2016-12-10 21:14:58,230 [DEBUG] 32 localhost todzhang  iterate human faces found
+2016-12-10 21:14:58,231 [DEBUG] 36 localhost todzhang Show the result
+2016-12-10 21:15:10,997 [DEBUG] 10 localhost todzhang 			start to process 		
+2016-12-10 21:15:10,998 [DEBUG] 12 localhost todzhang 	inputImageFile is test.jpg
+2016-12-10 21:15:10,998 [DEBUG] 14 localhost todzhang   we are going to make use of HAAR cascade to detect human faces
+2016-12-10 21:15:10,998 [DEBUG] 17 localhost todzhang  To build one classifier based on aforeside cascade
+2016-12-10 21:15:11,030 [DEBUG] 20 localhost todzhang  To load digital images via library CV2
+2016-12-10 21:15:11,040 [DEBUG] 23 localhost todzhang  Firstly, going to convert colorful image to grayscale,for further analysis
+2016-12-10 21:15:11,041 [DEBUG] 26 localhost todzhang  To call method detectMultiScale, to detect objects, here is human faces
+2016-12-10 21:15:11,095 [INFO] 29 localhost todzhang  Found  2  human faces in this image
+2016-12-10 21:15:11,096 [DEBUG] 32 localhost todzhang  iterate human faces found
+2016-12-10 21:15:11,096 [DEBUG] 36 localhost todzhang Show the result
