@@ -8,11 +8,11 @@ tag:
 A Facial Recognition utility in a dozen of LOC (Lines Of Code)
 
 ## CV (Computer Vision)
-I have been soak myself in open sourced libraries, such as OpenCV. I gradually came to realize concepts such as _Machine Learning_ , _Deep Learning_ are not purely academic standing water. As a matter of fact, those elusive topics and certain pramatic use cases could coalesce in a hurdle of interesting products. For instance, in past couple of months, there were a hype of _guess-ages-by-photo_, below is one screenshot.
+I have been soak myself in open sourced libraries, such as OpenCV. I gradually came to realize concepts such as _Machine Learning_ , _Deep Learning_ are not purely academic standing water. As a matter of fact, those elusive topics and certain pramatic use cases could coalesce in a amount of interesting products. For instance, in past couple of months, there were a hype of _guess-ages-by-photo_, below is one screenshot.
 
 ![](http://cloudsdocker.github.io/images/facial_howold.jpg)
 
-Initially been attracted by such funky features, after second thoughts, I found at the heart of it is two cohensive parts, the first one is how to locate _human faces_ from background and whole picture, consequently to have a ballpark _age_ for the recongnized the faces. You may guess how difficult to codify a program to implement the 1st feature. Actually this is not requires hundreds of thousands of lines of code, at here purely a dozen of lines of code are necessiated (actually only 10 lines of code, excluding space line and comments). I'd like to piggyback on such tiny utility to elaborate advanced topics of Computer Visions.
+What a seducive one! Initially been attracted by such funky features, after second thoughts, I found at the heart of it is two cohensive parts, the first one is how to locate _human faces_ from background and whole picture, consequently to have a ballpark _age_ for the recongnized the faces. You may guess how difficult to codify a program to implement the 1st feature. Actually no need chunks of code, at here purely a dozen of lines of code are necessiated (actually only 10 lines of code, excluding space line and comments). I'd like to piggyback on such tiny utility to elaborate advanced topics of Computer Visions.
 
 ### Faces recognition
 Actually _face recognition_ is not new to us, this feature can be wildly found in the feature of _auto focus_ in DC (Digital Camera) and many main stream smart phone built-in cameras. Just like below photo. You can get a sense of how _commonplace_ of face recognition , which is becoming a widely used technology around us.
@@ -116,27 +116,27 @@ print(" Found {} human faces in this image".format(len(foundFaces)))
 for (x,y,w,h) in foundFaces:
     cv2.rectangle(objImage,(x,y),(x+w,y+h),(0,0,255),2)
 ```
-- 遍历发现的“人脸”，需要说明的返回的是由4部分组成的位置数据，即这个“人脸”的横轴，纵轴坐标，宽度与高度。
-- 然后使用 _OpenCV_ 提供的方法在原始图片上画出个矩形。其中 _(0,0,255)_ 是使用的颜色，这里使用的是R/G/B的颜色表示方法，比如 (0,0,0)表示黑色，(255,255,255)表示白色，有些网页编程经验的程序员应该不陌生。
+- Traverese all faces detected, please be noted returning object is consist of 4 parts, i.e. the horizontal and vertial position, width and height.
+- Consequently to draw a rectangle by an off-the-shelf method from _OpenCV_. Be advised _(0,0,255)_ represents color of the rectangel. It use R/G/B mode, e.g. black is (0,0,0)，white is (255,255,255)，etc. Well versed web programmer should be familiar with it.
 
 ```python
-cv2.imshow(u'面部识别的结果已经高度框出来了。按任意键退出'.encode('gb2312'), objImage)
+cv2.imshow('Detected human faces highlighted. Press any key to exit. ', objImage)
 cv2.waitKey(0)
 ```
-- 接下来是使用 _opencv_ 提供的imshow方法来显示这个图片，其中包括我们刚刚画的红色的识别的结果
-- 最后一个语句是让用户按下键盘任意一个键来退出此图片显示窗口
+- To display this image via _opencv_ provided method imshow, together with the rectangles we draw previously
+- The last one is one user hint, remind you can quit the applicaiton by press any key on the image display window
 
 # In summary
-好了，上面是这个程序的详细解释以及相关的知识的讲解。其实这个只是个_抛砖引玉_的作用，还用非常多的应用场景，比如程序解析网页上的图片验证码，雅虎前几个月开源的 [NSFW](https://github.com/yahoo/open_nsfw), Not Suitable for Work (NSFW)，即判断那些不适合工作场所的图片，内容你懂的。 :-)
+We've skimmed source codes and related knowledge. This is just one of bunch of use cases of this framework, hope this can bring some insights. ，such as hack of CAPTCHA, newly open sourced project form Yahoo, [NSFW](https://github.com/yahoo/open_nsfw), Not Suitable for Work (NSFW)，to detect images with pornagraphy, etc.
 
-Finally，please be reminded all related source are open sourced at github repository https://github.com/CloudsDocker/pyFacialRecognition ，please fork并下载到本地后执行下面代码来测试运行
+Finally，please be reminded all related source are open sourced at github repository https://github.com/CloudsDocker/pyFacialRecognition ，please fork and sync to your local disk, check it out and paly it.
 ```sh
 git clone https://github.com/CloudsDocker/pyFacialRecognition.git
 cd pyFacialRecognition
 ./run.sh
 ```
 
-Any comments/suggestions, feel free to contact me
+You can access [my blog](http://cloudsdocker.github.io/2016/12/11/2016-11-22-Facial-Recognition_en/). Any comments/suggestions, feel free to contact me.
 
 ## Contact me：
 * phray.zhang@gmail.com (email，whatsapp, linkedin)
@@ -149,28 +149,13 @@ Any comments/suggestions, feel free to contact me
 ## Reference
 - [Object recognition](https://www.mathworks.com/discovery/object-recognition.html)
 - [OpenCV](http://docs.opencv.org/trunk/index.html)
-- [HAAR 哈尔特征](https://zh.wikipedia.org/wiki/哈尔特征)
+- [HAAR features](https://en.wikipedia.org/wiki/Haar-like_features)
 - [Face Detection using Haar Cascades](http://docs.opencv.org/trunk/d7/d8b/tutorial_py_face_detection.html)
 - [NSFW](https://github.com/yahoo/open_nsfw)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
+
 # Chinese version/ 中文版本的说明
 用10几行代码自己写个人脸识别程序
 
