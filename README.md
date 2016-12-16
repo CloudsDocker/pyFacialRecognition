@@ -8,18 +8,18 @@ tag:
 A Facial Recognition utility in a dozen of LOC (Lines Of Code)
 
 ## CV (Computer Vision)
-I have been soak myself in open sourced libraries, such as OpenCV. I gradually came to realize concepts such as _Machine Learning_ , _Deep Learning_ are not purely academic standing water. As a matter of fact, those elusive topics and certain pramatic use cases could coalesce in a amount of interesting products. For instance, in past couple of months, there were a hype of _guess-ages-by-photo_, below screenshot depicts such.
+I have been soak myself in open sourced libraries, such as OpenCV. I gradually came to discern concepts such as _Machine Learning_ , _Deep Learning_ are not academic standing water. As a matter of fact, those elusive topics and certain pragmatic use cases could coalesce in a amount of interesting products. For instance, in past couple of months, there were a hype of _guess-ages-by-photo_, below screenshot depicts such.
 
 ![](http://cloudsdocker.github.io/images/facial_howold.jpg)
 
-What a seducive one! Initially been attracted by such funky features, after second thoughts, I found at the heart of it is two cohensive parts, the first one is how to locate _human faces_ from background and whole picture, consequently to have a ballpark _age_ guess for the recongnized the faces. You may guess how difficult to codify a program to implement the 1st feature. Actually no need chunks of code, at here purely a dozen of lines of code are necessiated (actually only 10 lines of code, excluding space line and comments). I'd like to piggyback on such tiny utility to elaborate advanced topics of Computer Visions.
+What a seductive one! Initially been attracted by such funky features, after second thoughts, I found at the heart of it is two cohesive parts, the first one is how to locate _human faces_ from background and whole picture, consequently to have a ballpark _age_ guess for the recognized the faces. You may guess how difficult to codify a program to implement the 1st feature. Actually no need chunks of code, at here purely a dozen of lines of code are necessitated (actually only 10 lines of code, excluding space line and comments). I'd like to piggyback on such tiny utility to elaborate advanced topics of Computer Visions.
 
 ### Faces recognition
 Actually _face recognition_ is not new to us, this feature prevailing in so-called _auto focus_ in DC (Digital Camera) and many main stream smart phone built-in cameras. Just like below photo. You can get a sense of how _commonplace_ of face recognition , which is becoming a widely used technology around us.
 
 ![](http://cloudsdocker.github.io/images/iPhone-camera-face-recognition.jpg)
 
-Therotically speaking, face recognition is also called _face detection_, it's a type of technogloy/program to electorincally identify human frontal faces in digital images, such as photos, camera or suvillance. Further more, face detection is kind of objects detection in computer vision area. Which will locate object (e.g. human face) and get the size.
+Theoretically speaking, face recognition is also called _face detection_, it's a type of technology/program to electronically identify human frontal faces in digital images, such as photos, camera or surveillance. Further more, face detection is kind of objects detection in computer vision area. Which will locate object (e.g. human face) and get the size.
 
 ## My '10 LOC program'
 First of all, let's have some visual and concrete feeling of this program, below screenshot is the source code.
@@ -28,7 +28,7 @@ First of all, let's have some visual and concrete feeling of this program, below
 
 The whole program source code can be found at  [this github repository](https://github.com/CloudsDocker/pyFacialRecognition) https://github.com/CloudsDocker/pyFacialRecognition . Please feel free to _fork_ , check it out and have a try. I'll walk through this program one line by one line at this blog.
 
-"You serious? This is all the problem, just aforementioned 10 lines?" Let's first take a look at the actul run output.
+"You serious? This is all the problem, just aforementioned 10 lines?" Let's first take a look at the actual run output.
 
 ### Here is the origional image
 ![](http://cloudsdocker.github.io/images/facial_oriImage.jpg)
