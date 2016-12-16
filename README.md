@@ -8,21 +8,21 @@ tag:
 A Facial Recognition utility in a dozen of LOC (Lines Of Code)
 
 ## CV (Computer Vision)
-I have been soak myself in open sourced libraries, such as OpenCV. I gradually came to realize concepts such as _Machine Learning_ , _Deep Learning_ are not purely academic standing water. As a matter of fact, those elusive topics and certain pramatic use cases could coalesce in a amount of interesting products. For instance, in past couple of months, there were a hype of _guess-ages-by-photo_, below is one screenshot.
+I have been soak myself in open sourced libraries, such as OpenCV. I gradually came to realize concepts such as _Machine Learning_ , _Deep Learning_ are not purely academic standing water. As a matter of fact, those elusive topics and certain pramatic use cases could coalesce in a amount of interesting products. For instance, in past couple of months, there were a hype of _guess-ages-by-photo_, below screenshot depicts such.
 
 ![](http://cloudsdocker.github.io/images/facial_howold.jpg)
 
-What a seducive one! Initially been attracted by such funky features, after second thoughts, I found at the heart of it is two cohensive parts, the first one is how to locate _human faces_ from background and whole picture, consequently to have a ballpark _age_ for the recongnized the faces. You may guess how difficult to codify a program to implement the 1st feature. Actually no need chunks of code, at here purely a dozen of lines of code are necessiated (actually only 10 lines of code, excluding space line and comments). I'd like to piggyback on such tiny utility to elaborate advanced topics of Computer Visions.
+What a seducive one! Initially been attracted by such funky features, after second thoughts, I found at the heart of it is two cohensive parts, the first one is how to locate _human faces_ from background and whole picture, consequently to have a ballpark _age_ guess for the recongnized the faces. You may guess how difficult to codify a program to implement the 1st feature. Actually no need chunks of code, at here purely a dozen of lines of code are necessiated (actually only 10 lines of code, excluding space line and comments). I'd like to piggyback on such tiny utility to elaborate advanced topics of Computer Visions.
 
 ### Faces recognition
-Actually _face recognition_ is not new to us, this feature can be wildly found in the feature of _auto focus_ in DC (Digital Camera) and many main stream smart phone built-in cameras. Just like below photo. You can get a sense of how _commonplace_ of face recognition , which is becoming a widely used technology around us.
+Actually _face recognition_ is not new to us, this feature prevailing in so-called _auto focus_ in DC (Digital Camera) and many main stream smart phone built-in cameras. Just like below photo. You can get a sense of how _commonplace_ of face recognition , which is becoming a widely used technology around us.
 
 ![](http://cloudsdocker.github.io/images/iPhone-camera-face-recognition.jpg)
 
 Therotically speaking, face recognition is also called _face detection_, it's a type of technogloy/program to electorincally identify human frontal faces in digital images, such as photos, camera or suvillance. Further more, face detection is kind of objects detection in computer vision area. Which will locate object (e.g. human face) and get the size.
 
 ## My '10 LOC program'
-First of all, let's have some visual and concrete feeling of this program, below screenshot is the source code. 
+First of all, let's have some visual and concrete feeling of this program, below screenshot is the source code.
 
 ![](http://cloudsdocker.github.io/images/facial_code_preview.png)
 
@@ -38,11 +38,11 @@ Please be advised the red rectangle around faces.
 ![](http://cloudsdocker.github.io/images/facial_postProcessImage_en.png)
 
 
-## Souce Code 
+## Souce Code
 ### Prerequite
 First of first, as you know, this program is composed by **python**,therefore, make sure you work station or laptop equiped with python, vesrion is irrelavant for this program.
 
-In addition, this utility is built upon [OpenCV](http://opencv.org/downloads.html) (http://opencv.org/downloads.html), therefore please install this component as well. Just as its name suggested, it is an open source framework focus on computer vision related deep learning. This is one Intel lab built by Rusian, which is a very active community. 
+In addition, this utility is built upon [OpenCV](http://opencv.org/downloads.html) (http://opencv.org/downloads.html), therefore please install this component as well. Just as its name suggested, it is an open source framework focus on computer vision related deep learning, surfaced decades ago. This is one Intel lab built by Rusian, which is a very active community.
 
 Particulary, if you are Mac users, it's recommended to use *brew* to setup OpenCV. Below is sample commands(The 1st line of following command may raise some errors, in that case please contact me via the link at the rear of this blog):
 ```sh
@@ -50,7 +50,7 @@ brew tap homebrew/science
 brew install opencv
 ```
 
-Upon completion of above scripts, you can execute following scripts to verify whether it's installed success or not, e.g. it means all fine if no exception/errors raised
+Upon completion of preceding scripts, you can execute following scripts to verify whether it's installed success or not, e.g. it means all fine if no exception/errors raised
 ```sh
 >>> import cv2
 ```
@@ -72,7 +72,7 @@ inputImageFile=sys.argv[1]
 faceClassifier=cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 ```
 
-- To load HAAR Casscade Classifier, the human face recognition cascade categorizer which shipped with OpenCV. Which will do the _actual_ computation, logic to recognize and size human faces from any given images.  
+- To load HAAR Casscade Classifier, the human face recognition cascade categorizer which shipped with OpenCV. Which will do the _actual_ computation, logic to recognize and size human faces from any given images.
 
 
 ### Expansion of computer vision knowledge
@@ -82,16 +82,16 @@ We stop here not reading further code, avoiding perplex you, I'll walk through c
 In arena of computer vision and machine learning, a variaty of classifiers been and being built, to assemle special _domain_ knowledge to recognize corresponding objects. For example, there are particular **classifier** to recognize cars, there are _plane_ classifier, and classifiers to recognize smile, eyes, etc. For our case, we need a specific classifier help us to detect and locate human faces.
 
 #### Conceps of objects recognize
-Generally speaking，, to recognize one object (such as human faces) means finding and identifying objects in an image or video sequence. However, it's neccessitate tons of sample/specimen to **train** machine to learn, for instance, it's likely thousands of hundreds of digital images/video will be prepared as learning material, while all of specimen should be categorized to two mutax type,  _positive_ or _negative_. e.g. phots containss *human face* and ones **without** *human face*. When machine read one photo, it was told this is either a positive one or negative one, then machine could gradually analysys and induce some **common facets** and persist to files for future usages, e.g. when given a new photo, the machine can **classify** it whether it's a positive or negative. That's why it's called **_classifier_**. 
+Generally speaking，, to recognize one object (such as human faces) means finding and identifying objects in an image or video sequence. However, it's neccessitate tons of sample/specimen to **train** machine to learn, for instance, it's likely thousands of hundreds of digital images/video will be prepared as learning material, while all of specimen should be categorized to two mutax type,  _positive_ or _negative_. e.g. phots containss *human face* and ones **without** *human face*. When machine read one photo, it was told this is either a positive one or negative one, then machine could gradually analysys and induce some **common facets** and persist to files for future usages, e.g. when given a new photo, the machine can **classify** it whether it's a positive or negative. That's why it's called **_classifier_**.
 
-#### Cascade 
+#### Cascade
 Your feeling is right, just as it's name suggrested, cascade implies propagating something. In this case, it's specifically means **Cascade classifier**. Intuitively the next question is *why* cascade is required? Let me try to articulate the underlying logic, as you know, at the heart of digital images, which is the raw material of computer vision, are pixel。For one CV process, it need to scan each pixel per pixel, while in contemporary world, size of image tend to incresing more than we expected, e.g. normall one photo taken by smart phone tend to contains millions of pixels. At the meanwhile, to fine tune and get a more accuate result of one object recognition, it tend to lots of *classifiers* to work from different point of views of the underlying photo. Therefore these two factors interwhirled together, the final number would be astronomical. Therefore, one innovative solution is *cascade*, in a nutshell, all classifiers will be splited to multiple layers, one photo will be examined by classifiers on 1st layer at the very begining, if failed, the whole CV can retain **_negative_** immediately, with fewest efforts and time cost, while majority of other classifiers won't be executed in actual. This should significantely accelerate the whole process of CV. This is similar to **_FF(Fail Fast)_** in other areas,severed for sake of running efficiency.
 
 
 ```python
 objImage=cv2.imread(inputImageFile)
 ```
--  To create one OpenCV image object by loading the input digital file via OpenCV 
+-  To create one OpenCV image object by loading the input digital file via OpenCV
 
 
 ```python
@@ -127,7 +127,7 @@ cv2.waitKey(0)
 - The last one is one user hint, remind you can quit the applicaiton by press any key on the image display window
 
 # In summary
-We've skimmed source codes and related knowledge. This is just one of bunch of use cases of this framework, hope this can bring some insights. ，such as hack of CAPTCHA, newly open sourced project form Yahoo, [NSFW](https://github.com/yahoo/open_nsfw), Not Suitable for Work (NSFW)，to detect images with pornagraphy, etc.
+We've skimmed source codes and pertaining knowledge. This is just scratched the surface of this framework, hope this can open the door to more advanced topics and insights, such as hack of CAPTCHA, newly open sourced project form Yahoo, [NSFW](https://github.com/yahoo/open_nsfw), Not Suitable for Work (NSFW)，to detect images with pornagraphy, etc.
 
 Finally，please be reminded all related source are open sourced at github repository https://github.com/CloudsDocker/pyFacialRecognition ，please fork and sync to your local disk, check it out and paly it.
 ```sh
@@ -169,15 +169,15 @@ You can access [my blog](http://cloudsdocker.github.io/2016/12/11/2016-11-22-Fac
 
 ### 面部识别,刷脸
  _人脸识别_技术大家应该都不陌生，之前大家使用的数码相机，或者现在很多手机自带的相机都有人脸识别的功能。其效果就像是下图这样。近的看，_剁手节_刚刚过了没有多久 , 背后的马老板一直在力推的刷脸支付也是一个此领域的所谓“黑科技”。比如在德国汉诺威电子展上，马云用支付宝“刷脸”买了一套纪念邮票。人脸识别应用市场也从爆发。随后，各大互联网巨头也纷纷推出了刷脸相关的应用。
- 
+
 ![](http://cloudsdocker.github.io/images/iPhone-camera-face-recognition.jpg)
 
 如果要加个定义，人脸识别又叫做人像识别、面部识别，是一种通过用摄像机或摄像头采集含有人脸的图像或视频流，并自动在图像中检测和跟踪人脸，进而对检测到的人脸进行脸部的一系列相关技术。
 
 ## 我的十行代码程序
- 
+
 OK，长话短说，先上 _干货_ ，下面就是此程序的_带注释_ 版本，完整的程序以及相关配套文件可以在 [这个github库](https://github.com/CloudsDocker/pyFacialRecognition) https://github.com/CloudsDocker/pyFacialRecognition 中找到，有兴趣可以_fork_ 下来玩玩。下面是整个程序的代码样子，后面我会逐行去解释分析。
- 
+
 ![](http://cloudsdocker.github.io/images/facial_code_preview.png)
 
 
@@ -206,7 +206,7 @@ brew install opencv
 >>> import cv2
 ```
 
-### 程序代码“庖丁解牛” 
+### 程序代码“庖丁解牛”
 
 ```python
 # -*- coding: utf-8 -*-
@@ -230,13 +230,13 @@ faceClassifier=cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 这里有几个在深度学习及机器图像识别领域中的几个概念，稍微分析一下，至于深入的知识，大家可以自行搜索或者联系作者。
 
-### Classifier 
+### Classifier
 在机器深度学习领域，针对识别不同物体都有不同的classifier,比如有的classifier来识别汽车，还有识别飞机的classifier，有classifier来识别照片中的笑容，眼睛等等。而我们这个例子是需要去做人脸识别，因此需要一个面部识别的classifier。
 
 ### 物体识别的原理
 一般来说，比如想要机器学习着去识别“人脸”，就会使用大量的样本图片来事先培训，这些图片分为两大类，positive和negative的，也就是分为包“含有人脸”的图片和“不包含人脸”的图片，这样当使用程序去一张一张的分析这些图片，然后分析判断并对这些图片“分类” (classify),即合格的图片与不合格的图片，这也就其为什么叫做 _classifier_ ， 这样学习过程中积累的"知识"，比如一些判断时的到底临界值多少才能判断是positive还是negative什么的，都会存储在一个个XML文件中，这样使用这些前人经验（这里我们使用了 _哈尔_ 分类器）来对新的图片进行‘专家判断'分析，是否是人脸或者不是人脸。
 
-### Cascade 
+### Cascade
 这里的 Cascade是 _层级分类器_ 的意思。为什么要 _分层_ 呢？刚才提到在进行机器分析照片时，其实是对整个图片从上到下，从左到右，一个像素一个像素的分析，这些分析又会涉及很多的 _特征分析_ ，比如对于人脸分析就包含识别眼睛，嘴巴等等，一般为了提高分析的准确度都需要有成千上万个特征，这样对于每个像素要进行成千上万的分析，对于整个图片都是百万甚至千万像素，这样总体的计算量会是个天文数字。但是，科学家很聪明，就想到分级的理念，即把这些特征分层，这样分层次去验证图片，如果前面层次的特征没有通过，对于这个图片就不用判断后面的特征了。这有点像是系统架构中的 _FF (Fail Fast)_,这样就提高了处理的速度与效率。
 
 
@@ -306,4 +306,3 @@ cd pyFacialRecognition
 
 - [Face Detection using Haar Cascades](http://docs.opencv.org/trunk/d7/d8b/tutorial_py_face_detection.html)
 - [NSFW](https://github.com/yahoo/open_nsfw)
-
