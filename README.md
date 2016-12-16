@@ -1,5 +1,5 @@
-# A Facial Recognition utility in a dozen of LOC (Lines Of Code)
-> 用10几行代码自己写个人脸识别程序 (Chinese title, please scrolldown to view README in Chinese.
+# A Facial Recognition utility in a dozen of python LOC (Lines Of Code)
+> 用10几行Python代码自己写个人脸识别程序 (Chinese title, please scrolldown to view README in Chinese.)
 
 ## CV (Computer Vision)
 I have been soak myself in open sourced libraries, such as OpenCV. I gradually came to discern concepts such as _Machine Learning_ , _Deep Learning_ are not academic standing water. As a matter of fact, those elusive topics and certain pragmatic use cases could coalesce in a amount of interesting products. For instance, in past couple of months, there were a hype of _guess-ages-by-photo_, below screenshot depicts such.
